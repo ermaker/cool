@@ -1,4 +1,5 @@
 module Cool
+  # A runnable work
   class Work
     def initialize(code)
       @code = code
