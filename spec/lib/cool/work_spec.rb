@@ -29,5 +29,15 @@ self.value
       expect(work.execute).to eq(1)
       expect(work.value).to eq(1)
     end
+
+    it 'works with instance_eval' do
+      work = described_class.new <<-EOC
+self.class.instance_eval { attr_reader :value }
+@value = 1
+self.value
+      EOC
+      expect(work.execute).to eq(1)
+      expect(work.value).to eq(1)
+    end
   end
 end
