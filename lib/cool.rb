@@ -1,5 +1,6 @@
 require 'cool/version'
 
+# The list of classes in Cool module
 module Cool
-  # Your code goes here...
+  autoload :Work, 'cool/work'
 end
