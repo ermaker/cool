@@ -6,8 +6,8 @@ require 'cool/version'
 Gem::Specification.new do |spec|
   spec.name          = 'cool'
   spec.version       = Cool::VERSION
-  spec.authors       = ['Minwoo Lee', 'Minkyu Kim']
-  spec.email         = ['ermaker@gmail.com', 'synthdnb@gmail.com']
+  spec.authors       = ['Minwoo Lee']
+  spec.email         = ['ermaker@gmail.com']
   spec.summary       = 'TBA'
   spec.description   = 'TBA'
   spec.homepage      = ''
