@@ -1,8 +1,5 @@
 inherit_from: .rubocop_todo.yml
 
-Style/RegexpLiteral:
-  Enabled: false
-
 Metrics/LineLength:
   Exclude:
     - 'spec/spec_helper.rb'
