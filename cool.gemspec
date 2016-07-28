@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Cool::VERSION
   spec.authors       = ['Minwoo Lee']
   spec.email         = ['ermaker@gmail.com']
-  spec.summary       = 'TBA'
-  spec.description   = 'TBA'
+  spec.summary       = 'Cool Utilities'
+  spec.description   = 'Cool Utilities'
   spec.homepage      = ''
   spec.license       = 'MIT'
 
