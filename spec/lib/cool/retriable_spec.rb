@@ -67,7 +67,7 @@ RSpec.describe Cool::Retriable do
 
         ENUM = [:no, :no, :yes].to_enum
         def do_it
-          ENUM.next.tap { |value| fail if value == :no }
+          ENUM.next.tap { |value| raise if value == :no }
         end
         retry_(:do_it)
       end
@@ -82,7 +82,7 @@ RSpec.describe Cool::Retriable do
 
         ENUM = [:no, :no, :no].to_enum
         def do_it
-          ENUM.next.tap { |value| fail if value == :no }
+          ENUM.next.tap { |value| raise if value == :no }
         end
         retry_(:do_it)
       end
@@ -97,7 +97,7 @@ RSpec.describe Cool::Retriable do
 
         ENUM = [:no].to_enum
         def do_it
-          ENUM.next.tap { |value| fail if value == :no }
+          ENUM.next.tap { |value| raise if value == :no }
         end
         retry_(:do_it, times: 1)
       end
@@ -112,7 +112,7 @@ RSpec.describe Cool::Retriable do
 
         ENUM = [:error, nil, :yes].to_enum
         def do_it
-          ENUM.next.tap { |value| fail if value == :error }
+          ENUM.next.tap { |value| raise if value == :error }
         end
         retry_(:do_it, &:nil?)
       end
@@ -127,7 +127,7 @@ RSpec.describe Cool::Retriable do
 
         ENUM = [:yes, :error].to_enum
         def do_it
-          ENUM.next.tap { |value| fail if value == :error }
+          ENUM.next.tap { |value| raise if value == :error }
         end
         retry_(:do_it)
       end
