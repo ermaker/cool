@@ -1,4 +1,5 @@
 module Cool
+  # Retriable
   module Retriable
     def retry_(new_method, on: StandardError, times: 3, &condition) # rubocop:disable Metrics/MethodLength, Metrics/LineLength
       condition ||= ->(*) { false }
