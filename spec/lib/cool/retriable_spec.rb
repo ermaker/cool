@@ -1,6 +1,6 @@
 RSpec.describe Cool::Retriable do
   describe '#retry_' do
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -15,7 +15,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:yes)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -30,7 +30,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:no)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -45,7 +45,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:yes)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -60,7 +60,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:yes)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -75,7 +75,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:yes)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -90,7 +90,7 @@ RSpec.describe Cool::Retriable do
       expect { klass.new.do_it }.to raise_error(StandardError)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -105,7 +105,7 @@ RSpec.describe Cool::Retriable do
       expect { klass.new.do_it }.to raise_error(StandardError)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
@@ -120,7 +120,7 @@ RSpec.describe Cool::Retriable do
       expect(klass.new.do_it).to eq(:yes)
     end
 
-    it 'works' do
+    specify do
       retriable = described_class
       klass = Class.new do
         extend retriable
