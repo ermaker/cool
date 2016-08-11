@@ -188,5 +188,33 @@ RSpec.describe Cool::Retriable do
 
       expect(klass.new(error1, error2).do_it).to eq(:yes)
     end
+
+    specify do
+      retriable = described_class
+      error1 = Class.new(StandardError)
+      error2 = Class.new(StandardError)
+      klass = Class.new do
+        extend retriable
+
+        def initialize(error1, error2)
+          @error1 = error1
+          @error2 = error2
+          @enum = [:error1, :error2, :error, :yes].to_enum
+        end
+
+        def do_it
+          @enum.next.tap do |value|
+            case value
+            when :error1 then raise @error1
+            when :error2 then raise @error2
+            when :error then raise StandardError
+            end
+          end
+        end
+        retry_(:do_it, times: 4, on: [error1, error2])
+      end
+
+      expect { klass.new(error1, error2).do_it }.to raise_error(StandardError)
+    end
   end
 end
