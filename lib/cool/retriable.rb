@@ -9,7 +9,7 @@ module Cool
           retval =
             begin
               method(orig_method).call(*args, &block)
-            rescue on
+            rescue *on
               next
             end
           return retval unless block_given? && yield(retval)
